@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+// Int, String, DateTime, Float, Boolean
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model photos {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  date DateTime
+  url String
+  photo_category_id Int
+  location_id Int
+}
+
+model photo_categories {
+  id Int @id @default(autoincrement())
+  name String
+}
+
+model locations {
+  id Int @id @default(autoincrement())
+  name String
+  latitude Float
+  longitude Float
+}
+
+model equipment {
+  id Int @id @default(autoincrement())
+  name String
+  equipment_category_id Int
+}
+
+model equipment_categories {
+  id Int @id @default(autoincrement())
+  name String
+}
+
+model photo_equipment {
+  photo_id Int
+  equipment_id Int
+  @@id([photo_id, equipment_id])
+}
