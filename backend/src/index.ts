@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import prisma from './db'
 
 dotenv.config()
 const app = express()
