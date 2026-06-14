@@ -16,11 +16,11 @@ datasource db {
 model photos {
   id Int @id @default(autoincrement())
   title String
-  description String
+  description String?
   date DateTime
   url String
   photo_category_id Int
-  location_id Int
+  location_id Int?
 }
 
 model photo_categories {
