@@ -14,9 +14,7 @@ export const getPhotos = async (req: Request, res: Response) => {
 export const getPhotoById = async (req: Request, res: Response) => {
   try {
     const photo = await prisma.photos.findUnique({
-      where: {
-        id: Number(req.params.id)
-      }
+      where: { id: Number(req.params.id) }
     })
     if (photo) {
       res.json(photo)

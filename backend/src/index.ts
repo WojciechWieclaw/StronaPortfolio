@@ -4,6 +4,7 @@ import 'dotenv/config'
 import prisma from './db'
 
 import photosRoute from './routes/photos.route'
+import photoCategoriesRoute from './routes/photoCategories.route'
 
 
 const app = express()
@@ -17,6 +18,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/photos', photosRoute)
+app.use('/photo-categories', photoCategoriesRoute)
 
 
 app.listen(PORT, () => {

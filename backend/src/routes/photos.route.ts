@@ -1,4 +1,4 @@
-import {createPhoto, deletePhoto, getPhotoById, getPhotos, updatePhoto} from '../controllers/photos.controller'
+import { createPhoto, deletePhoto, getPhotoById, getPhotos, updatePhoto } from '../controllers/photos.controller'
 import { Router } from 'express'
 const router = Router()
 
