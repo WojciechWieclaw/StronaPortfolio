@@ -19,13 +19,21 @@ model photos {
   description String?
   date DateTime
   url String
-  photo_category_id Int
+
   location_id Int?
+  location  locations? @relation(fields: [location_id], references: [id])
+
+  photo_category_id Int
+  category photo_categories @relation(fields: [photo_category_id], references: [id])
+
+  photoEquipment photo_equipment[]
 }
 
 model photo_categories {
   id Int @id @default(autoincrement())
   name String
+
+  photos photos[]
 }
 
 model locations {
@@ -33,21 +41,32 @@ model locations {
   name String
   latitude Float
   longitude Float
+
+  photos photos[]
 }
 
 model equipment {
   id Int @id @default(autoincrement())
   name String
+
   equipment_category_id Int
+  category equipment_categories @relation(fields: [equipment_category_id], references: [id])
+
+  photoEquipment photo_equipment[]
 }
 
 model equipment_categories {
   id Int @id @default(autoincrement())
   name String
+
+  equipment equipment[]
 }
 
 model photo_equipment {
   photo_id Int
   equipment_id Int
   @@id([photo_id, equipment_id])
+
+  photo      photos    @relation(fields: [photo_id], references: [id])
+  equipment  equipment @relation(fields: [equipment_id], references: [id])
 }
