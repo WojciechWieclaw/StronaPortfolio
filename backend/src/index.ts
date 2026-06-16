@@ -1,10 +1,11 @@
+import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
-import 'dotenv/config'
 import prisma from './db'
 
 import photosRoute from './routes/photos.route'
 import photoCategoriesRoute from './routes/photoCategories.route'
+import locationsRoute from './routes/locations.route'
 
 
 const app = express()
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
 
 app.use('/photos', photosRoute)
 app.use('/photo-categories', photoCategoriesRoute)
+app.use('/locations', locationsRoute)
 
 
 app.listen(PORT, () => {
