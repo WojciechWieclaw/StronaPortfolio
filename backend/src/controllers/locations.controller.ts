@@ -16,12 +16,11 @@ export const getLocationById = async (req: Request, res: Response) => {
         const location = await prisma.locations.findUnique({
             where: { id: Number(req.params.id)  },
         });
-        if (location) {
-            res.json(location);
-        }
-        else {
+        if (!location) {
             res.status(404).json({ message: 'Lokalizacja nie znaleziona' });
+            return;
         }
+        res.json(location);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Wystąpił błąd podczas pobierania lokalizacji' });

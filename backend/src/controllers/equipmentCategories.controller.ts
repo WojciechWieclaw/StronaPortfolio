@@ -16,11 +16,11 @@ export const getEquipmentCategoryById = async (req: Request, res: Response) => {
         const category = await prisma.equipment_categories.findUnique({
             where: { id: Number(req.params.id) }
         })
-        if (category) {
-            res.json(category)
-        } else {
+        if (!category) {
             res.status(404).json({ message: 'Nie znaleziono kategorii' })
+            return
         }
+        res.json(category)
     } catch (error) {
         console.error(error)
         res.status(500).json({ message: 'Błąd serwera' })
@@ -39,7 +39,7 @@ export const createEquipmentCategory = async (req: Request, res: Response) => {
         })
         res.status(201).json(newCategory)
     }
-    catch (error) {
+    catch (error: any) {
         console.error(error)
         res.status(500).json({ message: 'Błąd serwera' })
     }
