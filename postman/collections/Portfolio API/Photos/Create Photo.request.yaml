@@ -1,0 +1,20 @@
+$kind: http-request
+name: Create Photo
+method: POST
+url: '{{baseUrl}}/photos'
+description: 'Creates a new photo. `title`, `url`, `date`, and `photo_category_id` are required.'
+order: 3000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Sunset at the lake",
+      "url": "https://example.com/photo.jpg",
+      "description": "A beautiful sunset",
+      "date": "2024-06-01T18:00:00.000Z",
+      "photo_category_id": 1,
+      "location_id": 1
+    }

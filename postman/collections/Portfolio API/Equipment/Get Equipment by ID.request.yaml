@@ -1,0 +1,8 @@
+$kind: http-request
+name: Get Equipment by ID
+method: GET
+url: '{{baseUrl}}/equipment/:id'
+order: 2000
+pathVariables:
+  - key: id
+    value: '1'

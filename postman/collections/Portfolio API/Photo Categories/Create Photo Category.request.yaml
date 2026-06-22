@@ -1,0 +1,14 @@
+$kind: http-request
+name: Create Photo Category
+method: POST
+url: '{{baseUrl}}/photo-categories'
+order: 904
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Landscape"
+    }

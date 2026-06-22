@@ -1,0 +1,11 @@
+$kind: http-request
+name: Remove Equipment from Photo
+method: DELETE
+url: '{{baseUrl}}/photos/:photoId/equipment/:photoId/:equipmentId'
+description: Removes the link between a photo and a piece of equipment. Returns 204 on success.
+order: 3000
+pathVariables:
+  - key: photoId
+    value: '1'
+  - key: equipmentId
+    value: '1'

@@ -1,0 +1,18 @@
+$kind: http-request
+name: Add Equipment to Photo
+method: POST
+url: '{{baseUrl}}/photos/:photoId/equipment/:photoId'
+description: 'Links a piece of equipment to a photo. `equipment_id` is required.'
+order: 2000
+pathVariables:
+  - key: photoId
+    value: '1'
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "equipment_id": 1
+    }

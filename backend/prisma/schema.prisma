@@ -31,14 +31,14 @@ model photos {
 
 model photo_categories {
   id Int @id @default(autoincrement())
-  name String
+  name String @unique
 
   photos photos[]
 }
 
 model locations {
   id Int @id @default(autoincrement())
-  name String
+  name String @unique
   latitude Float
   longitude Float
 
@@ -47,7 +47,7 @@ model locations {
 
 model equipment {
   id Int @id @default(autoincrement())
-  name String
+  name String @unique
 
   equipment_category_id Int
   category equipment_categories @relation(fields: [equipment_category_id], references: [id])
@@ -57,7 +57,7 @@ model equipment {
 
 model equipment_categories {
   id Int @id @default(autoincrement())
-  name String
+  name String @unique
 
   equipment equipment[]
 }

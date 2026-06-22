@@ -40,6 +40,10 @@ export const createPhotoCategory = async (req: Request, res: Response) => {
         res.status(201).json(newCategory)
     }
     catch (error: any) {
+        if (error.code === 'P2002') {
+            res.status(409).json({ message: 'Kategoria o tej nazwie już istnieje' })
+            return
+        }
         console.error(error)
         res.status(500).json({ message: 'Błąd serwera' })
     }

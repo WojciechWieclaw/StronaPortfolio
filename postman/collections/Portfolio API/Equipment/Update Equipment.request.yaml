@@ -1,0 +1,18 @@
+$kind: http-request
+name: Update Equipment
+method: PUT
+url: '{{baseUrl}}/equipment/:id'
+order: 4000
+pathVariables:
+  - key: id
+    value: '1'
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Updated Equipment",
+      "equipment_category_id": 1
+    }

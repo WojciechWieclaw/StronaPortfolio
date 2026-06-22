@@ -1,0 +1,9 @@
+$kind: http-request
+name: Delete Photo
+method: DELETE
+url: '{{baseUrl}}/photos/:id'
+description: Deletes a photo by ID. Returns 204 on success.
+order: 5000
+pathVariables:
+  - key: id
+    value: '1'

@@ -1,0 +1,6 @@
+$kind: collection
+name: Portfolio API
+description: API for the Portfolio website backend — manages photos, equipment, locations and their categories.
+variables:
+  - key: baseUrl
+    value: 'http://localhost:3001'

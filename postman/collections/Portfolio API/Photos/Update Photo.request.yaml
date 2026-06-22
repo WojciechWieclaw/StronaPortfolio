@@ -1,0 +1,23 @@
+$kind: http-request
+name: Update Photo
+method: PUT
+url: '{{baseUrl}}/photos/:id'
+description: 'Updates an existing photo. `title` and `url` are required.'
+order: 4000
+pathVariables:
+  - key: id
+    value: '1'
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Updated title",
+      "url": "https://example.com/updated.jpg",
+      "description": "Updated description",
+      "date": "2024-06-01T18:00:00.000Z",
+      "photo_category_id": 1,
+      "location_id": 1
+    }

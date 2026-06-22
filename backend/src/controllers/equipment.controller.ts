@@ -45,6 +45,10 @@ export const createEquipment = async (req: Request, res: Response) => {
             res.status(400).json({ message: 'Nie można utworzyć sprzętu, ponieważ przypisana kategoria nie istnieje' })
             return
         }
+        else if (error.code === 'P2002') {
+            res.status(409).json({ message: 'Sprzęt o tej nazwie już istnieje' })
+            return
+        }
         console.error(error)
         res.status(500).json({ message: 'Błąd serwera' })
     }

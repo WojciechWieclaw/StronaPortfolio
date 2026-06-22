@@ -41,7 +41,11 @@ export const createLocation = async (req: Request, res: Response) => {
             data: { name, latitude, longitude },
         });
         res.status(201).json(newLocation);
-    } catch (error) {
+    } catch (error : any) {
+        if (error.code === 'P2002') {
+            res.status(409).json({ message: 'Lokalizacja o tej nazwie już istnieje' })
+            return
+        }
         console.error(error);
         res.status(500).json({ message: 'Wystąpił błąd podczas tworzenia lokalizacji' });
     }

@@ -1,0 +1,9 @@
+$kind: http-request
+name: Get Equipment for Photo
+method: GET
+url: '{{baseUrl}}/photos/:photoId/equipment/:photoId'
+description: Returns all equipment linked to a specific photo, including equipment details.
+order: 1000
+pathVariables:
+  - key: photoId
+    value: '1'
