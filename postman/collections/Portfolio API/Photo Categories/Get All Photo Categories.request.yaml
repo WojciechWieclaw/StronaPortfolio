@@ -1,5 +1,0 @@
-$kind: http-request
-name: Get All Photo Categories
-method: GET
-url: '{{baseUrl}}/photo-categories'
-order: 1000

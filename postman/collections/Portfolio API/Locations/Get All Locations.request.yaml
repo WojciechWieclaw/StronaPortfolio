@@ -1,5 +1,0 @@
-$kind: http-request
-name: Get All Locations
-method: GET
-url: '{{baseUrl}}/locations'
-order: 1000

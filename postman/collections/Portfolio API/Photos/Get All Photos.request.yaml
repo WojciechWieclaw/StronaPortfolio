@@ -1,6 +1,0 @@
-$kind: http-request
-name: Get All Photos
-method: GET
-url: '{{baseUrl}}/photos'
-description: Returns a list of all photos.
-order: 1000
