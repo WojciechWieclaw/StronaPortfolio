@@ -3,8 +3,16 @@ import prisma from "../db";
 
 export const getPhotoEquipment = async (req: Request, res: Response) => {
     try {
+        const photoId = Number(req.params.photoId)
+        const photo = await prisma.photos.findUnique({
+            where: { id: photoId }
+        })
+        if (!photo) {
+            res.status(404).json({ message: 'Nie znaleziono zdjęcia' })
+            return
+        }
         const photoEquipment = await prisma.photo_equipment.findMany({
-            where: { photo_id: Number(req.params.photoId) },
+            where: { photo_id: photoId },
             include: { equipment: true }
         })
         res.json(photoEquipment)
@@ -13,7 +21,7 @@ export const getPhotoEquipment = async (req: Request, res: Response) => {
         console.error(error)
         res.status(500).json({ message: 'Błąd serwera' })
     }
-};
+}
 
 export const addEquipmentToPhoto = async (req: Request, res: Response) => {
     try {
@@ -57,8 +65,8 @@ export const removeEquipmentFromPhoto = async (req: Request, res: Response) => {
             }
         })
         res.status(204).send()
-    }   
-catch (error: any) {
+    }
+    catch (error: any) {
         if (error.code === 'P2025') {
             res.status(404).json({ message: 'Nie znaleziono przypisanego sprzętu do zdjęcia' })
             return
